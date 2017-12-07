@@ -9,7 +9,6 @@ import java.util.List;
 import modelo.Departamento;
 import modelo.Empleado;
 import modelo.Empresa;
-
 /**
  *
  * @author Marcelo11

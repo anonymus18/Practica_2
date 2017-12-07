@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.VentanaDepartamento;
 import vista.VentanaInicial;
-
 /**
  *
  * @author Marcelo11

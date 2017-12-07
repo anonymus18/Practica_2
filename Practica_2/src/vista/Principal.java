@@ -16,7 +16,6 @@ import modelo.Empresa;
 import modelo.Empresa;
 import vista.VentanaInicial;
 import vista.VentanaInicial;
-
 /**
  *
  * @author Marcelo11
