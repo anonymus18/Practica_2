@@ -60,6 +60,10 @@ public class VentanaEmpleado extends JFrame{
         this.txtList= new ArrayList<JTextField>();
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
+        this.txtList.add(new JTextField());
+        this.txtList.add(new JTextField());
+        this.txtList.add(new JTextField());
+        this.txtList.add(new JTextField());
         
         //this.combo = new JComboBox(this.cargarCombo());
         this.boton1 = new JButton("Guardar");
@@ -68,7 +72,7 @@ public class VentanaEmpleado extends JFrame{
         
         LayoutManager disenioPrincipal = new BorderLayout();
         this.panelPrincipal = new JPanel(disenioPrincipal);
-        LayoutManager disenioSup = new GridLayout(4,2);
+        LayoutManager disenioSup = new GridLayout(7,2);
         JPanel panelSup = new JPanel(disenioSup);
         
         this.encabezado = new Object[3];
@@ -85,9 +89,19 @@ public class VentanaEmpleado extends JFrame{
         panelSup.add(this.txtList.get(0));
         
         panelSup.add(this.etiList.get(1));
-        panelSup.add(this.combo);
-        panelSup.add(this.etiList.get(2));
         panelSup.add(this.txtList.get(1));
+//        panelSup.add(this.combo);
+        panelSup.add(this.etiList.get(2));
+        panelSup.add(this.txtList.get(2));
+        
+        panelSup.add(this.etiList.get(3));
+        panelSup.add(this.txtList.get(3));
+        
+        panelSup.add(this.etiList.get(4));
+        panelSup.add(this.txtList.get(4));
+        
+        panelSup.add(this.etiList.get(5));
+        panelSup.add(this.txtList.get(5));
         
         panelSup.add(this.boton1);
         panelSup.add(this.boton2);

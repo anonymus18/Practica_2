@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.VentanaDepartamento;
+import vista.VentanaEmpleado;
 import vista.VentanaInicial;
 /**
  *
@@ -38,10 +39,12 @@ public class EventoVentanaInicial implements ActionListener{
         if(e.getSource().equals(this.ventanaInicial.getItemMenuList().get(1))){
             VentanaDepartamento vD = new VentanaDepartamento(this.ventanaInicial.getgD());
             vD.setVisible(true);
-            this.ventanaInicial.getEscritorio().add(vD);
+            
         }
         
         if(e.getSource().equals(this.ventanaInicial.getItemMenuList().get(2))){
+            VentanaEmpleado vE = new VentanaEmpleado(this.ventanaInicial.getgD());
+            vE.setVisible(true);
             
         }
         
