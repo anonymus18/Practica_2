@@ -52,6 +52,19 @@ public class GestionDato {
         return this.departamentoList.add(d);
     }
     
+    public boolean addEmpresa(Empresa e) {
+        return this.empresaList.add(e);
+    }
     
-    
+    public boolean addEmpleado(Empleado em) {
+        return this.empleadoList.add(em);
+    }
+    public Empleado buscarEmpleado(String empleado){
+        for(Empleado e:this.getEmpleadoList()){
+            if(e.getClass().equals(empleado)==true){
+            return e;            
+            }
+        }
+        return null;
+    }
 }
