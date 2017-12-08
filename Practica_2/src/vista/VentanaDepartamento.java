@@ -43,7 +43,7 @@ public class VentanaDepartamento extends JInternalFrame{
         super("Registrar Departamento");
         this.gD=gD;
         this.iniciaComponentes();
-        this.setLocation(325, 50);
+        this.setLocation(325, 0);
         this.setSize(325, 325);
     }
     public void iniciaComponentes(){
