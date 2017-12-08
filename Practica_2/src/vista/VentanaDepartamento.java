@@ -29,6 +29,7 @@ public class VentanaDepartamento extends JInternalFrame{
     private List<JLabel> etiList;
     private List<JTextField> txtList;
     private JButton boton1;
+    private JButton boton2;
     private JPanel panelPrincipal;
     private GestionDato gD;
     private Object[][] datos;
@@ -45,8 +46,7 @@ public class VentanaDepartamento extends JInternalFrame{
         this.setLocation(325, 50);
         this.setSize(325, 325);
     }
-     public void iniciaComponentes()
-    {
+    public void iniciaComponentes(){
         this.etiList = new ArrayList<JLabel>();
         this.etiList.add(new JLabel("Seleccionar Ruta"));
         this.etiList.add(new JLabel("Empresa"));
@@ -57,32 +57,14 @@ public class VentanaDepartamento extends JInternalFrame{
         this.txtList.add(new JTextField());
         
         this.combo = new JComboBox(this.cargarCombo());
-        
-       
         this.boton1 = new JButton("Guardar");
+        this.boton2 = new JButton("Limpiar");
         
         
         LayoutManager disenioPrincipal = new BorderLayout();
         this.panelPrincipal = new JPanel(disenioPrincipal);
-        LayoutManager disenioSup = new GridLayout(5,2);
-        LayoutManager disenioBoton=new GridLayout(1,2);
+        LayoutManager disenioSup = new GridLayout(4,2);
         JPanel panelSup = new JPanel(disenioSup);
-        JPanel panelBotones = new JPanel(disenioBoton);
-        
-        panelSup.add(this.etiList.get(0));
-        panelSup.add(this.txtList.get(0));
-        
-        panelSup.add(this.etiList.get(1));
-        panelSup.add(this.combo);
-        panelSup.add(this.etiList.get(2));
-        panelSup.add(this.txtList.get(1));
-        
-        
-        panelBotones.add(this.boton1);
-        
-        
-        panelSup.add(panelBotones);
-        this.panelPrincipal.add(panelSup,BorderLayout.NORTH);
         
         this.encabezado = new Object[3];
         this.encabezado[0]= "Ruta";
@@ -94,6 +76,18 @@ public class VentanaDepartamento extends JInternalFrame{
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
         
+        panelSup.add(this.etiList.get(0));
+        panelSup.add(this.txtList.get(0));
+        
+        panelSup.add(this.etiList.get(1));
+        panelSup.add(this.combo);
+        panelSup.add(this.etiList.get(2));
+        panelSup.add(this.txtList.get(1));
+        
+        panelSup.add(this.boton1);
+        panelSup.add(this.boton2);
+        
+        this.panelPrincipal.add(panelSup,BorderLayout.NORTH);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
         //this.boton1.addActionListener(new EventoVentanaDepartamento(this));
