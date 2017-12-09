@@ -41,7 +41,6 @@ public class EventoVentanaDepartamento implements ActionListener{
             String empresa= this.ventanaDepartamento.getCombo().getSelectedItem().toString();
             String nombreEmpresa=this.ventanaDepartamento.getTxtList().get(0).getText();
             
-            
             try {
                                 
                 Departamento d = new Departamento(this.ventanaDepartamento.getgD().buscarEmpresa(empresa),nombreEmpresa);
@@ -89,23 +88,18 @@ public class EventoVentanaDepartamento implements ActionListener{
             JFrame frame = new JFrame("JComboBox Test");
             frame.setLayout(new FlowLayout());
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-           
-                    JFileChooser fileChooser = new JFileChooser();
-                    int returnValue = fileChooser.showOpenDialog(null);
-                    
-                        File selectedFile = fileChooser.getSelectedFile();
-                        System.out.println(selectedFile.getName());
-                        System.out.println(selectedFile.getAbsolutePath());   
+            
+            JFileChooser fileChooser = new JFileChooser();
+            int returnValue = fileChooser.showOpenDialog(null);
+            
+            File selectedFile = fileChooser.getSelectedFile();
+            System.out.println(selectedFile.getName());
+            System.out.println(selectedFile.getAbsolutePath());   
                         
             frame.pack();
             frame.setVisible(true);
             
-            
-            this.ventanaDepartamento.getTxtList().get(0).setText(selectedFile.getAbsolutePath());
-            
-            
+            this.ventanaDepartamento.getTxtList().get(0).setText(selectedFile.getAbsolutePath());   
         }
     }    
-    
-    
 }
