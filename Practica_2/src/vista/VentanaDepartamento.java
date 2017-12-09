@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.EventoVentanaDepartamento;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -22,6 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import modelo.Departamento;
+import modelo.Empresa;
 /**
  *
  * @author Marcelo11
@@ -31,6 +33,7 @@ public class VentanaDepartamento extends JFrame{
     private List<JTextField> txtList;
     private JButton boton1;
     private JButton boton2;
+    private JButton boton3;
     private JPanel panelPrincipal;
     private GestionDato gD;
     private Object[][] datos;
@@ -44,7 +47,7 @@ public class VentanaDepartamento extends JFrame{
         super("Registrar Departamento");
         this.gD=gD;
         this.iniciaComponentes();
-        this.setLocation(325, 0);
+        this.setLocation(325, 50);
         this.setSize(325, 325);
         this.setDefaultCloseOperation(3);
     }
@@ -56,12 +59,11 @@ public class VentanaDepartamento extends JFrame{
         
         this.txtList= new ArrayList<JTextField>();
         this.txtList.add(new JTextField());
-        this.txtList.add(new JTextField());
         
         this.combo = new JComboBox(this.cargarCombo());
         this.boton1 = new JButton("Guardar");
         this.boton2 = new JButton("Limpiar");
-        
+        this.boton3 = new JButton("Carpeta");
         
         LayoutManager disenioPrincipal = new BorderLayout();
         this.panelPrincipal = new JPanel(disenioPrincipal);
@@ -79,12 +81,12 @@ public class VentanaDepartamento extends JFrame{
         this.scroll = new JScrollPane(tabla);
         
         panelSup.add(this.etiList.get(0));
-        panelSup.add(this.txtList.get(0));
+        panelSup.add(this.boton3);
         
         panelSup.add(this.etiList.get(1));
         panelSup.add(this.combo);
         panelSup.add(this.etiList.get(2));
-        panelSup.add(this.txtList.get(1));
+        panelSup.add(this.txtList.get(0));
         
         panelSup.add(this.boton1);
         panelSup.add(this.boton2);
@@ -92,7 +94,9 @@ public class VentanaDepartamento extends JFrame{
         this.panelPrincipal.add(panelSup,BorderLayout.NORTH);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-        //this.boton1.addActionListener(new EventoVentanaDepartamento(this));
+        this.boton1.addActionListener(new EventoVentanaDepartamento(this));
+        this.boton2.addActionListener(new EventoVentanaDepartamento(this));
+        this.boton3.addActionListener(new EventoVentanaDepartamento(this));
         
         
         this.add(this.panelPrincipal);
@@ -114,10 +118,10 @@ public class VentanaDepartamento extends JFrame{
        
     }
     public Object[] cargarCombo(){
-        Object[] retorno = new Object[this.gD.getDepartamentoList().size()];
+        Object[] retorno = new Object[this.gD.getEmpresaList().size()];
         int i=0;
-        for(Departamento d:this.gD.getDepartamentoList()){
-            retorno[i]=d.getEmpresa();
+        for(Empresa e:this.gD.getEmpresaList()){
+            retorno[i]=e.getNombre()+" | "+e.getCiudad();
             i++;
         }
         return retorno;
@@ -211,5 +215,22 @@ public class VentanaDepartamento extends JFrame{
     public void setCombo(JComboBox combo) {
         this.combo = combo;
     }
+
+    public JButton getBoton2() {
+        return boton2;
+    }
+
+    public void setBoton2(JButton boton2) {
+        this.boton2 = boton2;
+    }
+
+    public JButton getBoton3() {
+        return boton3;
+    }
+
+    public void setBoton3(JButton boton3) {
+        this.boton3 = boton3;
+    }
+    
     
 }

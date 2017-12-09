@@ -38,7 +38,7 @@ public class Departamento {
 
     @Override
     public String toString() {
-        return empresa + " | " + nombreDepartamento;
+        return empresa + " / " + nombreDepartamento;
     }
 
     

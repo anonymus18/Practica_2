@@ -22,9 +22,6 @@ public class Empleado {
         this.fechaNac = fechaNac;
         this.cedula = cedula;
     }
-
-    
-
     public Departamento getDepartamento() {
         return departamento;
     }

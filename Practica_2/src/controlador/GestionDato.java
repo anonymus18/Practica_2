@@ -67,14 +67,16 @@ public class GestionDato {
         return this.empleadoList.add(em);
     }
     
-    public Empleado buscarEmpleado(String empleado){
-        for(Empleado e:this.getEmpleadoList()){
-            if(e.getClass().equals(empleado)==true){
-            return e;            
+    public Empresa buscarEmpresa(String empresa)
+    {
+        for(Empresa e:this.getEmpresaList()){
+            if((e.getNombre()+" | "+e.getCiudad()).equals(empresa)== true){
+                return e;
             }
         }
         return null;
     }
+       
     public Departamento buscarDepartamento(String departamento){
         for(Departamento d:this.getDepartamentoList()){
             if(d.getNombreDepartamento().equals(departamento)== true){
@@ -101,11 +103,33 @@ public class GestionDato {
         }
     }
     
+    public boolean persistirDepartamento(List<Departamento> lista, File datosDepartamento){
+        try{
+            FileWriter ae = new FileWriter(datosDepartamento.getAbsolutePath(),true);
+            BufferedWriter escritura = new BufferedWriter(ae);
+            for(Departamento d:lista ){
+            escritura.append(d.toString());
+            escritura.newLine();
+        }
+           
+            escritura.close();
+           return true;     
+        }
+        catch(IOException d){
+            return false;
+        }
+    }
     
     public Empleado dividido(String direccion){
         String[] lineaArray= direccion.split(" / ");
         Empleado e = new Empleado(this.buscarDepartamento(lineaArray[0]),lineaArray[1],lineaArray[2],lineaArray[3],lineaArray[4]);
         return e;
+    }
+    
+    public Departamento dividido1(String direccion){
+        String[] lineaArray= direccion.split(" / ");
+        Departamento d = new Departamento(this.buscarEmpresa(lineaArray[0]),lineaArray[1]);
+        return d;
     }
     
     public List<Empleado> LeerEmpleadoList(File datosEmpleado){
@@ -124,5 +148,21 @@ public class GestionDato {
             return null;
         }
     }
-    
+        
+    public List<Departamento> LeerDepartamentoList(File datosDepartamento){
+        try{
+            List<Departamento> de = new ArrayList<Departamento>();
+            FileReader ae = new FileReader(datosDepartamento.getAbsolutePath());
+            BufferedReader lectura1 = new BufferedReader(ae); 
+            String linea1;
+            while((linea1=lectura1.readLine())!=null){
+                de.add(this.dividido1(linea1));
+            }
+            lectura1.close();   
+            return de;      
+        }
+        catch(IOException e){
+            return null;
+        }
+    }
 }
