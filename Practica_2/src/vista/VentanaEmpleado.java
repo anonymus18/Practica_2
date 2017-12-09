@@ -33,6 +33,7 @@ public class VentanaEmpleado extends JFrame{
     private List<JTextField> txtList;
     private JButton boton1;
     private JButton boton2;
+    private JButton boton3;
     private JPanel panelPrincipal;
     private GestionDato gD;
     private Object[][] datos;
@@ -70,12 +71,17 @@ public class VentanaEmpleado extends JFrame{
         //this.combo = new JComboBox(this.cargarCombo());
         this.boton1 = new JButton("Guardar");
         this.boton2 = new JButton("Limpiar");
-        
+        this.boton3 = new JButton("Carpeta");
         
         LayoutManager disenioPrincipal = new BorderLayout();
         this.panelPrincipal = new JPanel(disenioPrincipal);
         LayoutManager disenioSup = new GridLayout(7,2);
+        LayoutManager disenioCarp = new GridLayout(1,3);
+        LayoutManager disenioFondoSup = new GridLayout(2,1);
+        
+        JPanel panelCarp = new JPanel(disenioCarp);
         JPanel panelSup = new JPanel(disenioSup);
+        JPanel panelFondoSup = new JPanel(disenioFondoSup);
         
         this.encabezado = new Object[3];
         this.encabezado[0] = "Ruta";
@@ -88,7 +94,8 @@ public class VentanaEmpleado extends JFrame{
         this.scroll = new JScrollPane(tabla);
         
         panelSup.add(this.etiList.get(0));
-        panelSup.add(this.txtList.get(0));
+       //panelCarp.add(this.txtList.get(0));
+        panelSup.add(this.boton3);
         
         panelSup.add(this.etiList.get(1));
         panelSup.add(this.txtList.get(1));
@@ -104,15 +111,20 @@ public class VentanaEmpleado extends JFrame{
         
         panelSup.add(this.etiList.get(5));
         panelSup.add(this.txtList.get(5));
+               
         
         panelSup.add(this.boton1);
         panelSup.add(this.boton2);
         
-        this.panelPrincipal.add(panelSup,BorderLayout.NORTH);
+       
+        panelFondoSup.add(panelSup);
+        
+        this.panelPrincipal.add(panelFondoSup,BorderLayout.NORTH);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
         this.boton1.addActionListener(new EventoVentanaEmpleado(this));
         this.boton2.addActionListener(new EventoVentanaEmpleado(this));
+        this.boton3.addActionListener(new EventoVentanaEmpleado(this));
         
         this.add(this.panelPrincipal);
     }
@@ -237,6 +249,14 @@ public class VentanaEmpleado extends JFrame{
 
     public void setCombo(JComboBox combo) {
         this.combo = combo;
+    }
+
+    public JButton getBoton3() {
+        return boton3;
+    }
+
+    public void setBoton3(JButton boton3) {
+        this.boton3 = boton3;
     }
     
     
