@@ -21,6 +21,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import modelo.Departamento;
+import modelo.Empleado;
 
 /**
  *
@@ -76,11 +78,11 @@ public class VentanaEmpleado extends JFrame{
         JPanel panelSup = new JPanel(disenioSup);
         
         this.encabezado = new Object[3];
-        this.encabezado[0]= "Ruta";
-        this.encabezado[1] = "Empresa";
-        this.encabezado[2] = "Nombre Departamento";
+        this.encabezado[0] = "Ruta";
+        this.encabezado[1] = "Departamento";
+        this.encabezado[2] = "Nombre";
         
-        //this.datos = this.cargaDatosTabla(this.gD.getDepartamentoList().size(),3);
+        this.datos = this.cargaDatosTabla(this.gD.getEmpleadoList().size(),3);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -110,35 +112,133 @@ public class VentanaEmpleado extends JFrame{
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
         this.boton1.addActionListener(new EventoVentanaEmpleado(this));
-        this.boton1.addActionListener(new EventoVentanaEmpleado(this));
+        this.boton2.addActionListener(new EventoVentanaEmpleado(this));
         
         this.add(this.panelPrincipal);
     }
-    // public Object[][] cargaDatosTabla(int h, int w)
-   // {
-       /* Object[][] retorno= new Object[h][w];
+     public Object[][] cargaDatosTabla(int h, int w)
+    {
+        Object[][] retorno= new Object[h][w];
         int i=0;
-        for(Departamento d:this.gD.getDepartamentoList())
+        for(Empleado e:this.gD.getEmpleadoList())
         {
             retorno[i][0]="";
-            retorno[i][1]=d.getEmpresa();
-            retorno[i][2]=d.getNombreDepartamento();
+            retorno[i][1]=e.getDepartamento();
+            retorno[i][2]=e.getNombre();
             
             i++;
         } 
         
         return retorno;
-        */
+        
        
-   // }
+    }
     public Object[] cargarCombo(){
-        Object[] retorno = new Object[this.gD.getDepartamentoList().size()];
+        Object[] retorno = new Object[this.gD.getEmpleadoList().size()];
         int i=0;
-        /*for(Departamento d:this.gD.getDepartamentoList()){
-            retorno[i]=d.getEmpresa();
+        for(Departamento d:this.gD.getDepartamentoList()){
+            retorno[i]=d.getNombreDepartamento();
             i++;
-        }*/
+        }
         return retorno;
     }
+
+    public List<JLabel> getEtiList() {
+        return etiList;
+    }
+
+    public void setEtiList(List<JLabel> etiList) {
+        this.etiList = etiList;
+    }
+
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public JButton getBoton1() {
+        return boton1;
+    }
+
+    public void setBoton1(JButton boton1) {
+        this.boton1 = boton1;
+    }
+
+    public JButton getBoton2() {
+        return boton2;
+    }
+
+    public void setBoton2(JButton boton2) {
+        this.boton2 = boton2;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+
+    public JComboBox getCombo() {
+        return combo;
+    }
+
+    public void setCombo(JComboBox combo) {
+        this.combo = combo;
+    }
+    
+    
 
 }

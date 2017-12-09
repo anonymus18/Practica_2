@@ -34,8 +34,8 @@ public class EventoVentanaDepartamento implements ActionListener{
             String e= this.ventanaDepartamento.getCombo().getSelectedItem().toString();
             String nE=this.ventanaDepartamento.getTxtList().get(0).getText();
             
-            Departamento d = new Departamento(this.ventanaDepartamento.getgD().buscarEmpleado(e), nE);
-            this.ventanaDepartamento.getgD().addDepartamento(d);
+            //Departamento d = new Departamento(this.ventanaDepartamento.getgD().buscarEmpleado(e), nE);
+            //this.ventanaDepartamento.getgD().addDepartamento(d);
             
             Object [][] dato=this.ventanaDepartamento.cargaDatosTabla(this.ventanaDepartamento.getgD().getDepartamentoList().size(),3);
 	this.ventanaDepartamento.setDatos(dato);

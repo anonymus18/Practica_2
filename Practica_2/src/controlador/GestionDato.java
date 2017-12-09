@@ -59,10 +59,19 @@ public class GestionDato {
     public boolean addEmpleado(Empleado em) {
         return this.empleadoList.add(em);
     }
+    
     public Empleado buscarEmpleado(String empleado){
         for(Empleado e:this.getEmpleadoList()){
             if(e.getClass().equals(empleado)==true){
             return e;            
+            }
+        }
+        return null;
+    }
+    public Departamento buscarDepartamento(String departamento){
+        for(Departamento d:this.getDepartamentoList()){
+            if(d.getNombreDepartamento().equals(departamento)== true){
+                return d;
             }
         }
         return null;

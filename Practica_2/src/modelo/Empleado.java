@@ -13,15 +13,17 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private String fechaNac;
-    private int cedula;
+    private String cedula;
 
-    public Empleado(Departamento departamento, String nombre, String apellido, String fechaNac, int cedula) {
+    public Empleado(Departamento departamento, String nombre, String apellido, String fechaNac, String cedula) {
         this.departamento = departamento;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
         this.cedula = cedula;
     }
+
+    
 
     public Departamento getDepartamento() {
         return departamento;
@@ -55,13 +57,15 @@ public class Empleado {
         this.fechaNac = fechaNac;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
+
+    
 
     @Override
     public String toString() {
