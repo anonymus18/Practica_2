@@ -55,7 +55,7 @@ public class EventoVentanaDepartamento implements ActionListener{
                 }
                 if (retorno == true) {
 
-                    throw new TestException("no debe ser repetido");
+                    throw new TestException("Datos ya INGRESADOS");
                 } else {
                     this.ventanaDepartamento.getgD().addDepartamento(d);
 

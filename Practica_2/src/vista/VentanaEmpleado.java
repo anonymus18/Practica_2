@@ -47,7 +47,7 @@ public class VentanaEmpleado extends JFrame{
         super("Registrar Empleado");
         this.gD=gD;
         this.iniciaComponentes();
-        this.setLocation(325, 50);
+        this.setLocation(650, 50);
         this.setSize(325, 325);
         this.setDefaultCloseOperation(3);
     }
