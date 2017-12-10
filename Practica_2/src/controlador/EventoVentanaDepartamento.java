@@ -71,9 +71,9 @@ public class EventoVentanaDepartamento implements ActionListener{
 
             } catch (TestException te) {
 
-                JOptionPane.showMessageDialog(ventanaDepartamento, "No ingresar Empleados Repetidos", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(ventanaDepartamento, "NO ingresar DEPARTAMENTOS repetidos", "ERROR!", JOptionPane.ERROR_MESSAGE);
             } catch (java.lang.NullPointerException npe) {
-                JOptionPane.showMessageDialog(ventanaDepartamento, "Ingrese los datos en todas las casillas", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(ventanaDepartamento, "Ingrese los DATOS en todas las CASILLAS", "ERROR!", JOptionPane.ERROR_MESSAGE);
             }
 
         }
