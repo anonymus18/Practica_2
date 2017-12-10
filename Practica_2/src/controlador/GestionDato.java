@@ -5,6 +5,13 @@
  */
 package controlador;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Departamento;
 import modelo.Empleado;
@@ -76,4 +83,46 @@ public class GestionDato {
         }
         return null;
     }
+    
+    public boolean persistirEmpleadoList(List<Empleado> lista, File datosEmpleado){
+        try{
+            FileWriter ae = new FileWriter(datosEmpleado.getAbsolutePath(),true);
+            BufferedWriter escritura = new BufferedWriter(ae);
+            for(Empleado e:lista ){
+            escritura.append(e.toString());
+            escritura.newLine();
+        }
+           
+            escritura.close();
+           return true;     
+        }
+        catch(IOException e){
+            return false;
+        }
+    }
+    
+    
+    public Empleado dividido(String direccion){
+        String[] lineaArray= direccion.split(" / ");
+        Empleado e = new Empleado(this.buscarDepartamento(lineaArray[0]),lineaArray[1],lineaArray[2],lineaArray[3],lineaArray[4]);
+        return e;
+    }
+    
+    public List<Empleado> LeerEmpleadoList(File datosEmpleado){
+        try{
+            List<Empleado> em = new ArrayList<Empleado>();
+            FileReader ae = new FileReader(datosEmpleado.getAbsolutePath());
+            BufferedReader lectura = new BufferedReader(ae); 
+            String linea;
+            while((linea=lectura.readLine())!=null){
+                em.add(this.dividido(linea));
+            }
+            lectura.close();   
+            return em;      
+        }
+        catch(IOException e){
+            return null;
+        }
+    }
+    
 }

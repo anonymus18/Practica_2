@@ -53,13 +53,15 @@ public class VentanaEmpleado extends JFrame{
     }
      public void iniciaComponentes(){
         this.etiList = new ArrayList<JLabel>();
+       
         this.etiList.add(new JLabel("Seleccione Ruta: "));
         this.etiList.add(new JLabel("Departamento: "));
         this.etiList.add(new JLabel("Nombre: "));
         this.etiList.add(new JLabel("Apellido: "));
         this.etiList.add(new JLabel("Fecha Nacimiento: "));
         this.etiList.add(new JLabel("Cedula:  "));
-        
+        this.etiList.add(new JLabel(""));
+         
         this.txtList= new ArrayList<JTextField>();
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
@@ -75,7 +77,7 @@ public class VentanaEmpleado extends JFrame{
         
         LayoutManager disenioPrincipal = new BorderLayout();
         this.panelPrincipal = new JPanel(disenioPrincipal);
-        LayoutManager disenioSup = new GridLayout(7,2);
+        LayoutManager disenioSup = new GridLayout(8,2);
         LayoutManager disenioCarp = new GridLayout(1,3);
         LayoutManager disenioFondoSup = new GridLayout(2,1);
         
@@ -94,8 +96,10 @@ public class VentanaEmpleado extends JFrame{
         this.scroll = new JScrollPane(tabla);
         
         panelSup.add(this.etiList.get(0));
-       //panelCarp.add(this.txtList.get(0));
         panelSup.add(this.boton3);
+        
+        panelSup.add(this.etiList.get(6));
+        panelSup.add(this.txtList.get(0));
         
         panelSup.add(this.etiList.get(1));
         panelSup.add(this.txtList.get(1));
@@ -117,9 +121,9 @@ public class VentanaEmpleado extends JFrame{
         panelSup.add(this.boton2);
         
        
-        panelFondoSup.add(panelSup);
         
-        this.panelPrincipal.add(panelFondoSup,BorderLayout.NORTH);
+        
+        this.panelPrincipal.add(panelSup,BorderLayout.NORTH);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
         this.boton1.addActionListener(new EventoVentanaEmpleado(this));
@@ -134,7 +138,7 @@ public class VentanaEmpleado extends JFrame{
         int i=0;
         for(Empleado e:this.gD.getEmpleadoList())
         {
-            retorno[i][0]="";
+            retorno[i][0]=e.getCedula();
             retorno[i][1]=e.getDepartamento();
             retorno[i][2]=e.getNombre();
             

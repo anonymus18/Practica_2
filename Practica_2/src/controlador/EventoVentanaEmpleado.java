@@ -48,7 +48,7 @@ public class EventoVentanaEmpleado implements ActionListener {
                 String apellido = this.ventanaEmpleado.getTxtList().get(3).getText();
                 String fechaNac = this.ventanaEmpleado.getTxtList().get(4).getText();
                 String cedula = (this.ventanaEmpleado.getTxtList().get(5).getText());
-
+                
                 Empleado empleado = new Empleado(this.ventanaEmpleado.getgD().buscarDepartamento(departamento), nombre, apellido, fechaNac, cedula);
 
                 boolean retorno = false;
@@ -69,6 +69,10 @@ public class EventoVentanaEmpleado implements ActionListener {
                 Object[][] dato = this.ventanaEmpleado.cargaDatosTabla(this.ventanaEmpleado.getgD().getEmpleadoList().size(), 3);
                 this.ventanaEmpleado.setDatos(dato);
                 this.ventanaEmpleado.getModeloTabla().setDataVector(this.ventanaEmpleado.getDatos(), this.ventanaEmpleado.getEncabezado());
+                File guardarArchivo = new File(ruta);
+                this.ventanaEmpleado.getgD().persistirEmpleadoList(this.ventanaEmpleado.getgD().getEmpleadoList(),guardarArchivo);
+                this.ventanaEmpleado.getgD().LeerEmpleadoList(guardarArchivo);
+                
 
             } catch (TestException te) {
 
@@ -103,7 +107,10 @@ public class EventoVentanaEmpleado implements ActionListener {
                         
             frame.pack();
             frame.setVisible(true);
-            File guardarArchivo = new File("selectedFile.getAbsolutePath()");
+            
+            
+            this.ventanaEmpleado.getTxtList().get(0).setText(selectedFile.getAbsolutePath());
+            
             
         }
     }

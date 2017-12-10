@@ -31,6 +31,7 @@ public class Principal {
         List<Departamento> departamento = new ArrayList<Departamento>();
         List<Empresa> empresa = new ArrayList<Empresa>();
         
+        
         GestionDato gD = new GestionDato(empleado, departamento, empresa);
         
         VentanaInicial vI = new VentanaInicial(gD);
