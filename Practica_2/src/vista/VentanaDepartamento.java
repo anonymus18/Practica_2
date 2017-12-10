@@ -114,7 +114,7 @@ public class VentanaDepartamento extends JFrame{
         for(Departamento d:this.gD.getDepartamentoList())
         {
             retorno[i][0]=this.getTxtList().get(0).getText();
-            retorno[i][1]=d.getEmpresa();
+            retorno[i][1]=d.getEmpresa().getNombre()+" | "+d.getEmpresa().getCiudad();
             retorno[i][2]=d.getNombreDepartamento();
             
             i++;
