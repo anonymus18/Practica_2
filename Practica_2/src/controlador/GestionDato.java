@@ -115,7 +115,7 @@ public class GestionDato {
             escritura.close();
            return true;     
         }
-        catch(IOException d){
+        catch(IOException dk){
             return false;
         }
     }
@@ -132,7 +132,7 @@ public class GestionDato {
             escritura.close();
            return true;     
         }
-        catch(IOException e){
+        catch(IOException ek){
             return false;
         }
     }
@@ -193,12 +193,12 @@ public class GestionDato {
         try{
             List<Empresa> em = new ArrayList<Empresa>();
             FileReader ae = new FileReader(datosEmpresa.getAbsolutePath());
-            BufferedReader lectura2 = new BufferedReader(ae); 
-            String linea2;
-            while((linea2=lectura2.readLine())!=null){
-                em.add(this.dividido2(linea2));
+            BufferedReader lectura = new BufferedReader(ae); 
+            String linea;
+            while((linea=lectura.readLine())!=null){
+                em.add(this.dividido2(linea));
             }
-            lectura2.close();   
+            lectura.close();   
             return em;      
         }
         catch(IOException e){

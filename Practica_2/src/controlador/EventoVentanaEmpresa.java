@@ -64,7 +64,7 @@ public class EventoVentanaEmpresa implements ActionListener{
                 this.ventanaEmpresa.setDatos(dato);
                 this.ventanaEmpresa.getModeloTabla().setDataVector(this.ventanaEmpresa.getDatos(), this.ventanaEmpresa.getEncabezado());
                 
-                File guardarArchivo = new File(this.ventanaEmpresa.getBoton3().getActionCommand());
+                File guardarArchivo = new File(ruta);
                 this.ventanaEmpresa.getgD().persistirEmpresaList(this.ventanaEmpresa.getgD().getEmpresaList(),guardarArchivo);
                 this.ventanaEmpresa.getgD().LeerEmpresaList(guardarArchivo);
                 
@@ -88,9 +88,9 @@ public class EventoVentanaEmpresa implements ActionListener{
         if (ae.getSource().equals(this.ventanaEmpresa.getBoton3())) {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            JFrame frame = new JFrame("JComboBox Test");
+            JFrame frame = new JFrame();
             frame.setLayout(new FlowLayout());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           
             
             JFileChooser fileChooser = new JFileChooser();
             int returnValue = fileChooser.showOpenDialog(null);
@@ -100,7 +100,7 @@ public class EventoVentanaEmpresa implements ActionListener{
             System.out.println(selectedFile.getAbsolutePath());   
                         
             frame.pack();
-            frame.setVisible(true);
+            
             
             this.ventanaEmpresa.getTxtList().get(0).setText(selectedFile.getAbsolutePath());   
         }

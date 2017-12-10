@@ -87,9 +87,9 @@ public class EventoVentanaDepartamento implements ActionListener{
         if (ae.getSource().equals(this.ventanaDepartamento.getBoton3())) {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            JFrame frame = new JFrame("JComboBox Test");
+            JFrame frame = new JFrame();
             frame.setLayout(new FlowLayout());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           
             
             JFileChooser fileChooser = new JFileChooser();
             int returnValue = fileChooser.showOpenDialog(null);
@@ -99,7 +99,7 @@ public class EventoVentanaDepartamento implements ActionListener{
             System.out.println(selectedFile.getAbsolutePath());   
                         
             frame.pack();
-            frame.setVisible(true);
+          
             
             this.ventanaDepartamento.getTxtList().get(0).setText(selectedFile.getAbsolutePath());   
         }
