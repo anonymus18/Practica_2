@@ -96,7 +96,7 @@ public class EventoVentanaEmpleado implements ActionListener {
             JDialog.setDefaultLookAndFeelDecorated(true);
             JFrame frame = new JFrame("JComboBox Test");
             frame.setLayout(new FlowLayout());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
            
                     JFileChooser fileChooser = new JFileChooser();
                     int returnValue = fileChooser.showOpenDialog(null);
@@ -106,7 +106,7 @@ public class EventoVentanaEmpleado implements ActionListener {
                         System.out.println(selectedFile.getAbsolutePath());   
                         
             frame.pack();
-            frame.setVisible(true);
+          
             
             
             this.ventanaEmpleado.getTxtList().get(0).setText(selectedFile.getAbsolutePath());

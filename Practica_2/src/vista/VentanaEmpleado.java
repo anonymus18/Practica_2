@@ -49,7 +49,7 @@ public class VentanaEmpleado extends JFrame{
         this.iniciaComponentes();
         this.setLocation(650, 50);
         this.setSize(325, 325);
-        this.setDefaultCloseOperation(3);
+       
     }
      public void iniciaComponentes(){
         this.etiList = new ArrayList<JLabel>();
@@ -138,7 +138,7 @@ public class VentanaEmpleado extends JFrame{
         int i=0;
         for(Empleado e:this.gD.getEmpleadoList())
         {
-            retorno[i][0]=e.getCedula();
+            retorno[i][0]=this.getTxtList().get(0).getText();
             retorno[i][1]=e.getDepartamento();
             retorno[i][2]=e.getNombre();
             
