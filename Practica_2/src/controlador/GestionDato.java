@@ -103,7 +103,7 @@ public class GestionDato {
         }
     }
     
-    public boolean persistirDepartamento(List<Departamento> lista, File datosDepartamento){
+    public boolean persistirDepartamentoList(List<Departamento> lista, File datosDepartamento){
         try{
             FileWriter ae = new FileWriter(datosDepartamento.getAbsolutePath(),true);
             BufferedWriter escritura = new BufferedWriter(ae);
@@ -120,6 +120,23 @@ public class GestionDato {
         }
     }
     
+    public boolean persistirEmpresaList(List<Empresa> lista, File datosEmpresa){
+        try{
+            FileWriter ae = new FileWriter(datosEmpresa.getAbsolutePath(),true);
+            BufferedWriter escritura = new BufferedWriter(ae);
+            for(Empresa e:lista ){
+            escritura.append(e.toString());
+            escritura.newLine();
+        }
+           
+            escritura.close();
+           return true;     
+        }
+        catch(IOException e){
+            return false;
+        }
+    }
+    
     public Empleado dividido(String direccion){
         String[] lineaArray= direccion.split(" / ");
         Empleado e = new Empleado(this.buscarDepartamento(lineaArray[0]),lineaArray[1],lineaArray[2],lineaArray[3],lineaArray[4]);
@@ -130,6 +147,12 @@ public class GestionDato {
         String[] lineaArray= direccion.split(" / ");
         Departamento d = new Departamento(this.buscarEmpresa(lineaArray[0]),lineaArray[1]);
         return d;
+    }
+    
+    public Empresa dividido2(String direccion){
+        String[] lineaArray= direccion.split(" / ");
+        Empresa em = new Empresa(lineaArray[0], lineaArray[1], lineaArray[2]);
+        return em;
     }
     
     public List<Empleado> LeerEmpleadoList(File datosEmpleado){
@@ -160,6 +183,23 @@ public class GestionDato {
             }
             lectura1.close();   
             return de;      
+        }
+        catch(IOException e){
+            return null;
+        }
+    }
+    
+    public List<Empresa> LeerEpresaList(File datosEmpresa){
+        try{
+            List<Empresa> em = new ArrayList<Empresa>();
+            FileReader ae = new FileReader(datosEmpresa.getAbsolutePath());
+            BufferedReader lectura2 = new BufferedReader(ae); 
+            String linea2;
+            while((linea2=lectura2.readLine())!=null){
+                em.add(this.dividido2(linea2));
+            }
+            lectura2.close();   
+            return em;      
         }
         catch(IOException e){
             return null;

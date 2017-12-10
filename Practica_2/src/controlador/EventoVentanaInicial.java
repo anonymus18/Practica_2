@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.VentanaDepartamento;
 import vista.VentanaEmpleado;
+import vista.VentanaEmpresa;
 import vista.VentanaInicial;
 /**
  *
@@ -33,7 +34,8 @@ public class EventoVentanaInicial implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource().equals(this.ventanaInicial.getItemMenuList().get(0))){
-            
+            VentanaEmpresa vE = new VentanaEmpresa(this.ventanaInicial.getgD());
+            vE.setVisible(true);
         }
         
         if(e.getSource().equals(this.ventanaInicial.getItemMenuList().get(1))){

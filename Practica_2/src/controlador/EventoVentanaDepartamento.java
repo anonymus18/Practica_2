@@ -37,9 +37,10 @@ public class EventoVentanaDepartamento implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(this.ventanaDepartamento.getBoton1())) {
+            
             String ruta=this.ventanaDepartamento.getTxtList().get(0).getText();
             String empresa= this.ventanaDepartamento.getCombo().getSelectedItem().toString();
-            String nombreEmpresa=this.ventanaDepartamento.getTxtList().get(0).getText();
+            String nombreEmpresa=this.ventanaDepartamento.getTxtList().get(1).getText();
             
             try {
                                 
@@ -65,7 +66,7 @@ public class EventoVentanaDepartamento implements ActionListener{
                 this.ventanaDepartamento.getModeloTabla().setDataVector(this.ventanaDepartamento.getDatos(), this.ventanaDepartamento.getEncabezado());
                 
                 File guardarArchivo = new File(ruta);
-                this.ventanaDepartamento.getgD().persistirDepartamento(this.ventanaDepartamento.getgD().getDepartamentoList(),guardarArchivo);
+                this.ventanaDepartamento.getgD().persistirDepartamentoList(this.ventanaDepartamento.getgD().getDepartamentoList(),guardarArchivo);
                 this.ventanaDepartamento.getgD().LeerEmpleadoList(guardarArchivo);
                 
 
@@ -79,6 +80,7 @@ public class EventoVentanaDepartamento implements ActionListener{
         }
         if (ae.getSource().equals(this.ventanaDepartamento.getBoton2())) {
             this.ventanaDepartamento.getTxtList().get(0).setText("");
+            this.ventanaDepartamento.getTxtList().get(1).setText("");
             
         }
 
