@@ -43,7 +43,7 @@ public class EventoVentanaEmpleado implements ActionListener {
         if (ae.getSource().equals(this.ventanaEmpleado.getBoton1())) {
             try {
                 String ruta = this.ventanaEmpleado.getTxtList().get(0).getText();
-                String departamento = this.ventanaEmpleado.getTxtList().get(1).getText();
+                String departamento = this.ventanaEmpleado.getCombo().getSelectedItem().toString();
                 String nombre = this.ventanaEmpleado.getTxtList().get(2).getText();
                 String apellido = this.ventanaEmpleado.getTxtList().get(3).getText();
                 String fechaNac = this.ventanaEmpleado.getTxtList().get(4).getText();

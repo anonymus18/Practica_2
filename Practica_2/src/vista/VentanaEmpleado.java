@@ -70,7 +70,7 @@ public class VentanaEmpleado extends JFrame{
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
         
-        //this.combo = new JComboBox(this.cargarCombo());
+        this.combo = new JComboBox(this.cargarCombo());
         this.boton1 = new JButton("Guardar");
         this.boton2 = new JButton("Limpiar");
         this.boton3 = new JButton("Carpeta");
@@ -102,8 +102,8 @@ public class VentanaEmpleado extends JFrame{
         panelSup.add(this.txtList.get(0));
         
         panelSup.add(this.etiList.get(1));
-        panelSup.add(this.txtList.get(1));
-//        panelSup.add(this.combo);
+       // panelSup.add(this.txtList.get(1));
+        panelSup.add(this.combo);
         panelSup.add(this.etiList.get(2));
         panelSup.add(this.txtList.get(2));
         
@@ -150,7 +150,7 @@ public class VentanaEmpleado extends JFrame{
        
     }
     public Object[] cargarCombo(){
-        Object[] retorno = new Object[this.gD.getEmpleadoList().size()];
+        Object[] retorno = new Object[this.gD.getDepartamentoList().size()];
         int i=0;
         for(Departamento d:this.gD.getDepartamentoList()){
             retorno[i]=d.getNombreDepartamento();

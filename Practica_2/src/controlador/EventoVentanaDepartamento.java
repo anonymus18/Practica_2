@@ -67,7 +67,7 @@ public class EventoVentanaDepartamento implements ActionListener{
                 
                 File guardarArchivo = new File(ruta);
                 this.ventanaDepartamento.getgD().persistirDepartamentoList(this.ventanaDepartamento.getgD().getDepartamentoList(),guardarArchivo);
-                this.ventanaDepartamento.getgD().LeerEmpleadoList(guardarArchivo);
+                this.ventanaDepartamento.getgD().LeerDepartamentoList(guardarArchivo);
                 
 
             } catch (TestException te) {
