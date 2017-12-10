@@ -66,7 +66,7 @@ public class EventoVentanaEmpresa implements ActionListener{
                 
                 File guardarArchivo = new File(this.ventanaEmpresa.getBoton3().getActionCommand());
                 this.ventanaEmpresa.getgD().persistirEmpresaList(this.ventanaEmpresa.getgD().getEmpresaList(),guardarArchivo);
-                this.ventanaEmpresa.getgD().LeerEpresaList(guardarArchivo);
+                this.ventanaEmpresa.getgD().LeerEmpresaList(guardarArchivo);
                 
 
             } catch (TestException te) {

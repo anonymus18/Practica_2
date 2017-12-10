@@ -189,7 +189,7 @@ public class GestionDato {
         }
     }
     
-    public List<Empresa> LeerEpresaList(File datosEmpresa){
+    public List<Empresa> LeerEmpresaList(File datosEmpresa){
         try{
             List<Empresa> em = new ArrayList<Empresa>();
             FileReader ae = new FileReader(datosEmpresa.getAbsolutePath());
