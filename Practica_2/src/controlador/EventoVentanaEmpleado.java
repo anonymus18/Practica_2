@@ -62,7 +62,7 @@ public class EventoVentanaEmpleado implements ActionListener {
 
                     throw new TestException("no debe ser repetido");
                 } else {
-                    this.ventanaEmpleado.getgD().addEmpleado(empleado);
+                    
 
                 }
 

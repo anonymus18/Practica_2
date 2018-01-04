@@ -5,7 +5,7 @@
  */
 package vista;
 
-import controlador.GestionDato;
+import GestionDato.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Departamento;

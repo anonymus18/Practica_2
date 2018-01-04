@@ -57,7 +57,7 @@ public class EventoVentanaDepartamento implements ActionListener{
 
                     throw new TestException("Datos ya INGRESADOS");
                 } else {
-                    this.ventanaDepartamento.getgD().addDepartamento(d);
+                    
 
                 }
 

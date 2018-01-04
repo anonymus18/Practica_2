@@ -1,36 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controlador;
+package GestionDato;
 
+
+
+import modelo.Departamento;
+import modelo.Empleado;
+import modelo.Empresa;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Departamento;
-import modelo.Empleado;
-import modelo.Empresa;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
- * @author Marcelo11
+ * @author Estudiante
  */
 public class GestionDato {
     private List<Empleado> empleadoList;
     private List<Departamento> departamentoList;
     private List<Empresa> empresaList;
-
+    
     public GestionDato(List<Empleado> empleadoList, List<Departamento> departamentoList, List<Empresa> empresaList) {
         this.empleadoList = empleadoList;
         this.departamentoList = departamentoList;
         this.empresaList = empresaList;
     }
 
+            
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
     }
@@ -54,18 +63,9 @@ public class GestionDato {
     public void setEmpresaList(List<Empresa> empresaList) {
         this.empresaList = empresaList;
     }
-
-    public boolean addDepartamento(Departamento d) {
-        return this.departamentoList.add(d);
-    }
     
-    public boolean addEmpresa(Empresa e) {
-        return this.empresaList.add(e);
-    }
     
-    public boolean addEmpleado(Empleado em) {
-        return this.empleadoList.add(em);
-    }
+    
     
     public Empresa buscarEmpresa(String empresa)
     {
@@ -205,4 +205,5 @@ public class GestionDato {
             return null;
         }
     }
+    
 }

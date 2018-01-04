@@ -5,8 +5,6 @@
  */
 package modelo;
 
-import modelo.Empresa;
-import modelo.Empresa;
 /**
  *
  * @author Marcelo11

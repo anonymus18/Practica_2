@@ -56,7 +56,7 @@ public class EventoVentanaEmpresa implements ActionListener{
 
                     throw new TestException("Datos ya INGRESADOS");
                 } else {
-                    this.ventanaEmpresa.getgD().addEmpresa(empresa);
+                    
 
                 }
 
